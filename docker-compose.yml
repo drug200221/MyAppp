@@ -1,0 +1,20 @@
+services:
+  apache:
+    build: .
+    ports:
+     - "8080:80"
+    volumes:
+     - ./:/var/www/site
+     - ./docker/configs/apache2/default.conf:/etc/apache2/sites-enabled/000-default.conf
+     - ./docker/configs/php/php.ini:/usr/local/etc/php/php.ini
+
+  mysql:
+    image: mysql:8.0.30
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - './docker/data/db:/var/lib/mysql'
+      - './docker/configs/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf'
+    command: --default-authentication-plugin=mysql_native_password

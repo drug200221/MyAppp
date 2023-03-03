@@ -1,0 +1,24 @@
+:root {
+    /*--brand-color: #013755;*/
+    --brand-color: #293d86;
+    --button-color: #000000;
+    --body-color: #fcf8f5;
+    --header-color: #000;
+}
+
+body {
+    background-color:  var(--body-color);
+}
+
+.navbar {
+    background-color: var(--brand-color);
+}
+
+header {
+    background-color:  var(--header-color);
+}
+
+.btn-primary {
+    background-color: var(--button-color);
+    border-color: var(--brand-color);
+}
